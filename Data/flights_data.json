@@ -1,0 +1,48 @@
+{
+  "airlines": [
+    {
+      "name": "Malév",
+      "flights": [
+        {
+          "type": "Domestic",
+          "flight_number": "MA001",
+          "departure": "Budapest",
+          "destination": "Pécs",
+          "price": 18000,
+          "capacity": 36
+        }
+      ],
+      "bookings": [
+        {"passenger": "Kovács Béla", "flight_number": "MA001"},
+        {"passenger": "Nagy Judit", "flight_number": "MA001"},
+        {"passenger": "Tóth János", "flight_number": "MA001"}
+      ]
+    },
+    {
+      "name": "Wizz Air",
+      "flights": [
+        {
+          "type": "International",
+          "flight_number": "W6230",
+          "departure": "Budapest",
+          "destination": "London",
+          "price": 40000,
+          "capacity": 230
+        },
+        {
+          "type": "International",
+          "flight_number": "W6440",
+          "departure": "Budapest",
+          "destination": "Dubai",
+          "price": 55000,
+          "capacity": 180
+        }
+      ],
+      "bookings": [
+        {"passenger": "Kiss Elemér", "flight_number": "W6230"},
+        {"passenger": "Szabó Lilla", "flight_number": "W6230"},
+        {"passenger": "Fekete Zoltán", "flight_number": "W6230"}
+      ]
+    }
+  ]
+}
