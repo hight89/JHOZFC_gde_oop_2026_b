@@ -19,6 +19,24 @@
       ]
     },
     {
+      "name": "Malév",
+      "flights": [
+        {
+          "type": "Domestic",
+          "flight_number": "MA002",
+          "departure": "Budapest",
+          "destination": "Debrecen",
+          "price": 18000,
+          "capacity": 4
+        }
+      ],
+      "bookings": [
+        {"passenger": "Tóth Petra", "flight_number": "MA002"},
+        {"passenger": "Szabó Márk", "flight_number": "MA002"},
+        {"passenger": "Farkas Eszter", "flight_number": "MA002"}
+      ]
+    },
+    {
       "name": "Wizz Air",
       "flights": [
         {

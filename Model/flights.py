@@ -1,14 +1,16 @@
 from abc import ABC
+from datetime import datetime
 
 class Flight(ABC):
-    def __init__(self, flight_number: str, departure: str, destination: str, price: int, capacity: int):
+    def __init__(self, flight_number: str, departure: str, destination: str, price: int, capacity: int, departure_time: datetime):
         self.flight_number = flight_number
         self.departure = departure
         self.destination = destination
         self.price = price
         self.capacity = capacity
+        self.departure_time = departure_time
         self._bookings = []
-
+    
     @property
     def flight_number(self) -> str:
         return self._flight_number
@@ -62,7 +64,11 @@ class Flight(ABC):
             raise ValueError("A férőhelyek száma csak pozitív egész szám lehet!")
 
     def flight_info(self) -> str:
-        return f"{self.flight_type} | Szám: {self.flight_number} | Indulás: {self.departure} | Cél: {self.destination} | Ár: {self.price} Ft | Férőhely: {self.capacity}"
+        time_str = self.departure_time.strftime("%Y-%m-%d %H:%M")
+        return (f"{self.flight_number} | "
+                f"{time_str} | {self.departure}->{self.destination} | "
+                f"Szabad helyek: {self.free_seats} ({self.flight_type})"
+                )
     
     def add_booking(self, booking: 'Booking'):
         self._bookings.append(booking)
@@ -75,11 +81,10 @@ class Flight(ABC):
     def free_seats(self) -> int:
         # Férőhely - eddigi foglalások száma
         return self.capacity - len(self._bookings)
-
-    def flight_info(self) -> str:
-        return (f"{self.flight_type} | Szám: {self.flight_number} | "
-                f"Indulás: {self.departure} | Cél: {self.destination} | "
-                f"Szabad helyek: {self.free_seats}/{self.capacity}")
+ 
+    
+    def __str__(self):
+        return self.flight_info()
 
 class DomesticFlight(Flight):
     flight_type = "Belföldi járat"
